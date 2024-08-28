@@ -1,0 +1,28 @@
+version: "1"
+
+package:
+  id: io.github.CanSat
+  name: CanSat
+  version: 0.0.0.1
+  kind: app
+  description: |
+    CanSat ground station software developed with Qt
+
+command:
+  - /opt/apps/io.github.CanSat/files/bin/cansat-gss
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/Kaan-Sat/CanSat-GSS-2019.git
+    version: master
+    commit: fbe7d90a77f99f499e03759828d5317bac1d4386
+
+build: |
+  cd /project/linglong/sources/CanSat-GSS-2019.git
+  git apply ../../../0001-install.patch
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make -j$(nproc)
+  make install
