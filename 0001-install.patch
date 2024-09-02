@@ -1,0 +1,29 @@
+From ee300ee7c2355a74c0b7ddce1474534c7376a24a Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Fri, 16 Aug 2024 16:36:25 +0800
+Subject: [PATCH] install
+
+---
+ CanSat-GSS.pro | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/CanSat-GSS.pro b/CanSat-GSS.pro
+index b3a0bcc..0eb2232 100644
+--- a/CanSat-GSS.pro
++++ b/CanSat-GSS.pro
+@@ -78,9 +78,9 @@ macx* {
+ }
+ 
+ linux:!android {
+-    target.path = /usr/bin
+-    icon.path = /usr/share/pixmaps
+-    desktop.path = /usr/share/applications
++    target.path = $$PREFIX/bin
++    icon.path = $$PREFIX/share/pixmaps
++    desktop.path = $$PREFIX/share/applications
+     icon.files += deploy/linux/cansat-gss.png
+     desktop.files += deploy/linux/cansat-gss.desktop
+ 
+-- 
+2.43.4
+
